@@ -1,0 +1,40 @@
+{
+  "name": "@config-manager/utils",
+  "version": "0.0.7",
+  "description": "Shared utilities for the Config Manager",
+  "author": "Justin Da Silva <justin.dasilva@mercatus.com>",
+  "license": "ISC",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@bitbucket.mercatus.com:7999/cm/shared-utils.git"
+  },
+  "type": "module",
+  "source": "./src/index.ts",
+  "main": "dist/index.cjs",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.modern.mjs"
+  },
+  "module": "./dist/index.module.mjs",
+  "unpkg": "./dist/index.umd.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "microbundle watch",
+    "build": "microbundle",
+    "clean": "rm -rf ./dist",
+    "typecheck": "tsc --project tsconfig.json --pretty --noEmit",
+    "publish-dist": "yarn clean && yarn build && publish-to-git --remote ssh://git@bitbucket.mercatus.com:7999/cm/shared-utils.git"
+  },
+  "dependencies": {
+    "lodash": "4.17.21"
+  },
+  "devDependencies": {
+    "microbundle": "^0.15.0",
+    "publish-to-git": "^1.1.9",
+    "@config-manager/types": "git+ssh://git@bitbucket.mercatus.com:7999/cm/shared-types.git#v0.0.4"
+  }
+}
