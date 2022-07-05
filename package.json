@@ -1,0 +1,42 @@
+{
+  "name": "@config-manager/utils",
+  "version": "0.1.3",
+  "description": "Shared utilities for the Config Manager",
+  "author": "Justin Da Silva <justin.dasilva@mercatus.com>",
+  "license": "ISC",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@bitbucket.mercatus.com:7999/cm/shared-utils.git"
+  },
+  "type": "module",
+  "source": "./src/index.ts",
+  "main": "dist/index.cjs",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.modern.js"
+  },
+  "module": "./dist/index.module.mjs",
+  "unpkg": "./dist/index.umd.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "microbundle watch",
+    "build": "microbundle",
+    "clean": "rm -rf ./dist",
+    "eslint": "eslint --ext js,jsx,ts,tsx --fix ./src",
+    "typecheck": "tsc --project tsconfig.json --pretty --noEmit",
+    "publish-dist": "yarn clean && yarn build && publish-to-git --remote ssh://git@bitbucket.mercatus.com:7999/cm/shared-utils.git",
+    "publish-dist:force": "yarn publish-dist --force"
+  },
+  "dependencies": {
+    "lodash": "4.17.21"
+  },
+  "devDependencies": {
+    "eslint": "^8.17.0",
+    "microbundle": "^0.15.0",
+    "publish-to-git": "^1.1.9"
+  }
+}
