@@ -1,6 +1,7 @@
 import type { Component, Components, Config, Configs, Onboarder, Source, StandardizedConfigs } from '../types';
 export declare type SourceConfigs = {
     getComponents?: () => Promise<Components>;
+    getOverrides?: () => Promise<object>;
     getOnboarders?: () => Promise<Onboarder>;
     getConfigs?: () => Promise<Configs>;
     getLabel?: () => string | Promise<string | undefined>;
@@ -37,7 +38,7 @@ declare const getHelpers: (components: Components, component: string, helperType
         many: string;
     }) => {};
 };
-declare const parseSource: ({ getComponents, getConfigs, getLabel, getName, getOnboarders, source }: SourceConfigs) => Promise<Source>;
+declare const parseSource: ({ getComponents, getConfigs, getLabel, getName, getOnboarders, getOverrides, source }: SourceConfigs) => Promise<Source>;
 declare class SourceError extends Error {
     constructor(source: any, error: any);
 }

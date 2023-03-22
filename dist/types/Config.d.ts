@@ -7,7 +7,7 @@ export declare type ConfigObject = {
     key?: string;
     /** The label for the config that will appear in the Config Manager UI */
     label?: string;
-    type?: `input` | `switch` | `radios` | `select` | `checklist` | `image`;
+    type?: `input` | `switch` | `radios` | `select` | `checklist` | `image` | `array`;
     inputType?: `text` | `number` | `color` | `url`;
     required?: boolean;
     placeholder?: string;
@@ -27,7 +27,16 @@ export declare type ConfigObject = {
     tags?: string[];
     longLabel?: string;
     deprecated?: boolean;
+    hidden?: boolean;
     inherit?: string;
+    array?: {
+        count: number;
+        type: `input` | `switch` | `radios` | `select` | `checklist` | `image` | `array` | `object`;
+        object?: {
+            type: `input` | `switch` | `radios` | `select` | `checklist` | `image` | `array`;
+            properties: string[];
+        };
+    };
 } & ({
     inherit: string;
 } | {

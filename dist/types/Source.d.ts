@@ -5,6 +5,7 @@ export declare type Source = {
     configs?: StandardizedConfigs;
     components?: Components;
     onboarders?: object;
+    overrides?: object;
 };
 export declare type Sources = {
     [key: string]: Source;
