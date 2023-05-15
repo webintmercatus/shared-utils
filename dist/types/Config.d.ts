@@ -29,6 +29,8 @@ export declare type ConfigObject = {
     deprecated?: boolean;
     hidden?: boolean;
     inherit?: string;
+    min?: number;
+    max?: number;
     array?: {
         count: number;
         type: `input` | `switch` | `radios` | `select` | `checklist` | `image` | `array` | `object`;
